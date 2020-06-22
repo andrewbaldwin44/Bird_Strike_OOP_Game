@@ -7,6 +7,10 @@ class Engine {
     addBackground(this.root);
   }
 
+  removePlayerMovement() {
+    document.removeEventListener('keydown', keydownHandler);
+  }
+
   gameLoop() {
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime();
@@ -30,6 +34,7 @@ class Engine {
     }
 
     if (this.isPlayerDead()) {
+      this.removePlayerMovement();
       this.playAgain();
     }
     else {
