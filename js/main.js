@@ -1,4 +1,5 @@
-const gameEngine = new Engine(document.getElementById('app'));
+const gameApp = document.getElementById('app');
+const gameEngine = new Engine(gameApp);
 
 const keydownHandler = (event) => {
   if (event.code === 'ArrowLeft') {
