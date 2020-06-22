@@ -11,6 +11,6 @@ const keydownHandler = (event) => {
   }
 };
 
-document.addEventListener('keydown', keydownHandler);
-
 gameEngine.gameLoop();
+
+document.addEventListener('keydown', keydownHandler);
