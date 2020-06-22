@@ -1,7 +1,4 @@
 // In this file we have some data that the other source files will use.
-// Most of this data is stored in constants.
-// Constants are just variables that never change. By convention,
-// We write constants with upper case letters.
 
 // The GAME_WIDTH and GAME_HEIGHT constants denote the size
 // of the game area in pixels and is used in engine-utilities.js.

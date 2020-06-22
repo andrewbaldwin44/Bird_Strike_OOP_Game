@@ -23,7 +23,7 @@ const nextEnemySpot = (enemies) => {
 
   // We are now in a position to find out position. We declare a variable candidate that is initially undefined.
   // candidate represents a potential spot. The variable will be repeatedly assigned different numbers.
-  // We will randomly try different spots until we find out that is available
+  // We will randomly try different spots until we find one that is available
   let candidate = undefined;
   while (candidate === undefined || spotsTaken[candidate]) {
     // candidate is assigned a random number between 0 and enemySpots (not including enemySpots). (what number is enemySpots?)
@@ -59,8 +59,9 @@ const addBackground = (root) => {
   whiteBox.style.zIndex = 100;
   whiteBox.style.position = 'absolute';
   whiteBox.style.top = `${GAME_HEIGHT}px`;
+  whiteBox.style.left = 0;
   whiteBox.style.height = `${ENEMY_HEIGHT}px`;
-  whiteBox.style.width = `${GAME_WIDTH}px`;
+  whiteBox.style.width = `${GAME_WIDTH + 10}px`;
   whiteBox.style.background = '#fff';
   root.append(whiteBox);
 };
