@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+
+body {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.text-container {
+  position: absolute;
+  z-index: 100;
+}
+
+.text {
+  color: white;
+  font-family: 'Holtwood One SC', serif;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 100;
+  text-align: center;
+}
