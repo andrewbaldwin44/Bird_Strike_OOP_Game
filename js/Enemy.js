@@ -8,7 +8,7 @@ class Enemy {
     this.destroyed = false;
 
     this.domElement = document.createElement('img');
-    this.domElement.src = './images/enemy.png';
+    this.domElement.src = './assets/images/enemy.png';
     this.domElement.style.position = 'absolute';
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = `${this.y}px`;

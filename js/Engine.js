@@ -11,27 +11,42 @@ class Engine {
     document.removeEventListener('keydown', keydownHandler);
   }
 
-  gameLoop() {
-    if (this.lastFrame === undefined) {
-      this.lastFrame = new Date().getTime();
-    }
+  getTimeDifference() {
+    const currentTime = new Date().getTime();
 
-    let timeDiff = new Date().getTime() - this.lastFrame;
+    let timeDiff = this.lastFrame
+      ? currentTime - this.lastFrame
+      : currentTime
 
-    this.lastFrame = new Date().getTime();
+    this.lastFrame = currentTime;
 
-    this.enemies.forEach((enemy) => {
-      enemy.update(timeDiff);
-    });
+    return timeDiff
+  }
 
-    this.enemies = this.enemies.filter((enemy) => {
-      return !enemy.destroyed;
-    });
+  updateEnemiesPosition() {
+    let timeDiff = this.getTimeDifference();
+    this.enemies.forEach(enemy => enemy.update(timeDiff));
+  }
 
+  removeDestroyedEnemies() {
+    this.enemies = this.enemies.filter(enemy => !enemy.destroyed);
+  }
+
+  spawnNewEnemy() {
+    const spot = nextEnemySpot(this.enemies);
+    this.enemies.push(new Enemy(this.root, spot));
+  }
+
+  spawnNewEnemies() {
     while (this.enemies.length < MAX_ENEMIES) {
-      const spot = nextEnemySpot(this.enemies);
-      this.enemies.push(new Enemy(this.root, spot));
+      this.spawnNewEnemy();
     }
+  }
+
+  gameLoop() {
+    this.updateEnemiesPosition();
+    this.removeDestroyedEnemies();
+    this.spawnNewEnemies();
 
     if (this.isPlayerDead()) {
       this.removePlayerMovement();
@@ -48,10 +63,8 @@ class Engine {
   }
 
   isPlayerDead() {
-    return this.enemies.some(enemy => {
-      if (enemy.x === this.player.x && (enemy.y + ENEMY_HEIGHT) > this.player.y) {
-        return true;
-      }
-    });
+    return this.enemies.some(enemy =>
+       enemy.x === this.player.x && (enemy.y + ENEMY_HEIGHT) > this.player.y
+    );
   }
 }
