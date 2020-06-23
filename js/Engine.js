@@ -8,10 +8,6 @@ class Engine {
     startSoundTrack();
   }
 
-  removePlayerMovement() {
-    document.removeEventListener('keydown', keydownHandler);
-  }
-
   getTimeDifference() {
     const currentTime = new Date().getTime();
 
@@ -27,6 +23,10 @@ class Engine {
   updateEnemiesPosition() {
     let timeDiff = this.getTimeDifference();
     this.enemies.forEach(enemy => enemy.update(timeDiff));
+  }
+
+  removeEnemies() {
+    this.enemies.forEach(enemy => enemy.destroy());
   }
 
   removeDestroyedEnemies() {
@@ -50,7 +50,7 @@ class Engine {
     this.spawnNewEnemies();
 
     if (this.isPlayerDead()) {
-      this.removePlayerMovement();
+      this.showLoseMessage()
       this.playAgain();
     }
     else {
@@ -58,9 +58,29 @@ class Engine {
     }
   }
 
+  showLoseMessage() {
+    let xCenter = GAME_WIDTH / 4;
+    let yCenter = GAME_HEIGHT / 2;
+
+    this.loseText = new Text(gameApp, xCenter, yCenter);
+    this.playAgainText = new Text(gameApp, xCenter, yCenter + 30);
+
+    this.loseText.update('You lose!');
+    this.playAgainText.update('Press any key to play again');
+  }
+
+  removeLoseMessage() {
+    this.loseText.update('');
+    this.playAgainText.update('');
+  }
+
   playAgain() {
-    let titleText = new Text(gameApp, GAME_WIDTH / 4, GAME_HEIGHT / 2);
-    titleText.update('You lose!');
+    document.addEventListener('keydown', () => {
+      this.removeLoseMessage();
+      this.removeEnemies();
+      this.gameLoop();
+    }, {once: true});
+
   }
 
   isPlayerDead() {

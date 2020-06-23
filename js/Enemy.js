@@ -18,14 +18,19 @@ class Enemy {
     this.speed = Math.random() / 2 + 0.25;
   }
 
+  destroy() {
+    if (!this.destroyed) {
+      this.root.removeChild(this.domElement);
+      this.destroyed = true;
+    }
+  }
+
   update(timeDiff) {
     this.y = this.y + timeDiff * this.speed;
     this.domElement.style.top = `${this.y}px`;
 
     if (this.y > GAME_HEIGHT - PLAYER_HEIGHT) {
-      this.root.removeChild(this.domElement);
-
-      this.destroyed = true;
+      this.destroy();
     }
   }
 }
