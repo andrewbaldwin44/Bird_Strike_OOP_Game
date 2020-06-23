@@ -5,6 +5,7 @@ class Engine {
     this.enemies = [];
 
     addBackground(this.root);
+    startSoundTrack();
   }
 
   removePlayerMovement() {

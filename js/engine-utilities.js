@@ -31,4 +31,11 @@ function addBackground(root) {
   root.append(whiteBox);
 }
 
+function startSoundTrack() {
+  let nyan = new Audio("./assets/sounds/nyan.mp3");
+  nyan.loop = true;
+  nyan.play();
+
+}
+
 const enemySpots = GAME_WIDTH / ENEMY_WIDTH;
