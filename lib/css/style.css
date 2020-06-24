@@ -20,6 +20,7 @@ body {
   font-family: 'Holtwood One SC', serif;
   font-size: 25px;
   font-weight: bold;
+  text-shadow: 1px 1px 2px black;
   z-index: 100;
   text-align: center;
 }
