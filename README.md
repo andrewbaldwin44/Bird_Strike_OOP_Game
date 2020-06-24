@@ -38,7 +38,7 @@ Next, look at the `isPlayerDead` method of the `Engine`. Notice that it's always
 
 Here, we are going to rewrite the code of this function to actually check if the player should be dead. We will do this by looping over all the enemies, and checking if their box overlaps the player box.
 
-If at least one enemy overlaps the player, then your function should return `true`. Otherwise it should return `false.
+If at least one enemy overlaps the player, then your function should return `true`. Otherwise it should return `false`.
 
 A good strategy would be to `console.log` both `this.player` and `this.enemies`. When you look in the console, you will see that those two objects contain the information necessary to detect a collision.
 
