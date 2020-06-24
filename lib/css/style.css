@@ -27,3 +27,19 @@ body {
 .score {
   text-align: left;
 }
+
+.lives-container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+  height: 100px;
+  z-index: 100;
+  right: 30px;
+  top: 10px;
+}
+
+.life {
+  height: 40px;
+  width: 40px;
+}
