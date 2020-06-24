@@ -30,17 +30,18 @@ body {
 }
 
 .lives-container {
-  position: fixed;
+  position: absolute;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 140px;
   height: 100px;
   z-index: 100;
-  right: 30px;
+  right: 20px;
   top: 10px;
 }
 
 .life {
   height: 40px;
   width: 40px;
+  padding-right: 10px;
 }
