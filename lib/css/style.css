@@ -23,3 +23,7 @@ body {
   z-index: 100;
   text-align: center;
 }
+
+.score {
+  text-align: left;
+}
