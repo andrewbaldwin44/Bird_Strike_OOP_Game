@@ -48,7 +48,6 @@ body {
 
 .lost-life {
   animation-name: flicker;
-  animation-duration: 1s;
 }
 
 @keyframes flicker {
