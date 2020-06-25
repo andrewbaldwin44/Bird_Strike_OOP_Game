@@ -10,6 +10,11 @@ body {
   overflow-y: hidden;
 }
 
+.player {
+  position: absolute;
+  z-index: 10;
+}
+
 .text-container {
   position: absolute;
   z-index: 100;
