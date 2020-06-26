@@ -1,6 +1,10 @@
 # Object Oriented Programming Game Project
 
-<p align="center"><img src="./images/screenshot.png"></p>
+<p align="center"><img src="./assets/images/screenshot.png"></p>
+
+## Demo
+
+[View Live](https://andrewbaldwin44.github.io/project-m2-nyan-cat/)
 
 # Introduction
 
