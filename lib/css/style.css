@@ -10,13 +10,17 @@ body {
   overflow-y: hidden;
 }
 
-.player {
+.player, .bullets, .text-container {
   position: absolute;
   z-index: 10;
 }
 
+.bullets {
+  height: 50px;
+  width: 20px;
+}
+
 .text-container {
-  position: absolute;
   z-index: 100;
 }
 
